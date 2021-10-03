@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Fingerpainting</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body style="margin: 0px;">
+ <canvas id="canvas"></canvas>
+ <div class="colorPicker">
+    <input type="color" id="bgcolor"/><br/>
+    <input type="hidden" id="colorContainer" value=""/>
+  </div>
+  <div class="radcirc" ><input id="ramer" type="range" oninput="razmer()" value="10" min = "10" max="100"></div>
+  <div  class="radf">
+      <form name="myForm">
+    <select style="position: relative;left: 5px;top: 5px;" name="forme" size="1">
+        <option value="circle" selected="selected">circle</option>
+        <option value="3r">3r</option>
+    </select>
+</form></div>
+ <script src="script.js"></script>
+</body>
+</html>

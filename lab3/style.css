@@ -1,0 +1,27 @@
+.colorPicker{
+    width: 60px;
+     height: 30px;
+      background-color: rgb(220, 220, 220);
+       margin-bottom: auto;
+
+text-align: center
+}
+.radcirc{
+
+    width: 130px;
+     height: 30px;
+      background-color: rgb(56, 44, 44);
+        margin-right: auto;
+        position: relative;
+        margin-top:-30px;
+        margin-left: 60px;
+}
+.radf{
+    width: 100px;
+     height: 30px;
+      background-color: rgb(186, 18, 18);
+        margin-right: auto;
+        position: relative;
+        margin-top:-30px;
+        margin-left: 190px;
+}
