@@ -48,7 +48,7 @@ function init() {
         console.log('перезапуск')
     })
     .catch(() => {
-        alert('This city not found')
+        console.log('This city not found')
         city = 'London';
         init()
         searchInp.value = ''
