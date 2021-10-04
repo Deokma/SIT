@@ -28,7 +28,6 @@ function init() {
     .then((data) => {
 
     
-        // imgBlock.innerHTML = `<img class='weather-img' src="http://openweathermap.org/img/w/` + data.weather[0].icon + `.png "></img>`
 
         tempBlock.textContent = `${temperature()}°`
 
@@ -60,5 +59,5 @@ init()
 
 setInterval(() => {
     init()
-}, 10000) //Обновляет инфу каждые 10секунд
+}, 10000)
 
