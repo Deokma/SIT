@@ -56,8 +56,3 @@ function init() {
 }
 
 init()
-
-setInterval(() => {
-    init()
-}, 10000)
-
