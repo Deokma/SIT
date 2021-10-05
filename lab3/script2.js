@@ -16,6 +16,20 @@ var MALLET = 'mallet';
 var PLAYER1 = 1;
 var PLAYER2 = 2;
 
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+
+var rightPressed1 = false;
+var leftPressed1 = false;
+var downPressed1 = false;
+var upPressed1 = false;
+var rightPressed2 = false;
+var leftPressed2 = false;
+var downPressed2 = false;
+var upPressed2 = false;
+
 var numPucks, player1Score, player2Score;
 
 var canvas = document.getElementById("canvas");
@@ -116,6 +130,63 @@ c.strokeRect(canvas.width - goalDepth, centerY - goalWidth / 2,
              goalDepth, goalWidth);
 }
 
+//////////////////////////////////////////////////////////////
+function keyDownHandler(e) {
+  if( e.keyCode == 68) {
+      rightPressed1 = true;
+  }
+   if( e.keyCode == 65) {
+      leftPressed1 = true;
+  }
+   if(e.keyCode == 83) {
+    downPressed1 = true;
+}
+ if(e.keyCode == 87) {
+  upPressed1 = true;
+}
+if( e.keyCode == 39) {
+  rightPressed2 = true;
+}
+if( e.keyCode == 37) {
+  leftPressed2 = true;
+}
+if(e.keyCode == 40) {
+downPressed2 = true;
+}
+if(e.keyCode == 38) {
+upPressed2 = true;
+}
+}
+
+function keyUpHandler(e) {
+  if( e.keyCode == 68) {
+      rightPressed1 = false;
+  }
+   if( e.keyCode == 65) {
+      leftPressed1 = false;
+  }
+   if( e.keyCode == 83) {
+    downPressed1 = false;
+}
+ if( e.keyCode == 87) {
+  upPressed1 = false;
+}
+
+
+if( e.keyCode == 39) {
+  rightPressed2 = false;
+}
+if( e.keyCode == 37) {
+  leftPressed2 = false;
+}
+if( e.keyCode == 40) {
+downPressed2 = false;
+}
+if( e.keyCode == 38) {
+upPressed2 = false;
+}
+}
+/////////////////////////////////////////////////////////////////
 function drawCircles(){
 // Draw the mallets and the puck in play
 c.fillStyle = "black";
@@ -220,6 +291,35 @@ var y2 = canvas.height - sidelineMargin;
     circle.x = circle.radius;
     circle.velocity.x = Math.abs(circle.velocity.x);
   }
+
+  ////////////////////////////////////////////////////////////////////
+  if(rightPressed1 && circles[1].x < canvas.width) {
+    circles[1].x += 2;
+}
+ if(leftPressed1 && circles[1].x > 0) {
+    circles[1].x -= 2;
+}
+ if(downPressed1 && circles[1].y < canvas.height) {
+  circles[1].y += 2;
+}
+ if(upPressed1 && circles[1].y > 0) {
+  circles[1].y -= 2;
+}
+
+
+if(rightPressed2 && circles[2].x < canvas.width) {
+  circles[2].x += 2;
+}
+ if(leftPressed2 && circles[2].x > 0) {
+  circles[2].x -= 2;
+}
+ if(downPressed2 && circles[2].y < canvas.height) {
+circles[2].y += 2;
+}
+ if(upPressed2 && circles[2].y > 0) {
+circles[2].y -= 2;
+}
+  //////////////////////////////////////////////////////////////////////
  
   // REPULSION between circles
   for(j = i + 1; j < circles.length; j++){
