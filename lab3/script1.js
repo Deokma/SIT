@@ -59,13 +59,13 @@ function drawBox(){
     c.fillStyle = '00F0FF';
     c.fill();
     c.lineWidth = 4;
-    c.strokeStyle = 'red';
+    c.strokeStyle = 'black';
     c.stroke();
   }
   function drawPaddle() {
     c.beginPath();
     c.rect(paddleX+10, (canvas.height/2)+40 - paddleHeight, paddleWidth, paddleHeight);
-    c.fillStyle = "#00F0FF";
+    c.fillStyle = "00F0FF";
     c.fill();
     c.closePath();
   }
