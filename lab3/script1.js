@@ -29,6 +29,7 @@ var animate = false;
   y : 0,
   down: false
 };
+
  var circle = {
   x : canvas.width/2 + 100,
   x1 : canvas.width/2,
