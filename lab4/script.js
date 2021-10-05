@@ -47,10 +47,17 @@ function init() {
 
         console.log('перезапуск')
     })
-  /*  .catch(() => {
+    .catch(() => {
         console.log('This city not found')
         city = 'London';
         init()
         searchInp.value = ''
-    }) */
+    })
 }
+
+init()
+
+setInterval(() => {
+    init()
+}, 10000)
+

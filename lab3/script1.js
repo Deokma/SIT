@@ -11,8 +11,12 @@ var requestAnimFrame = (function(){
  
 var canvas = document.getElementById("canvas");
 var c = canvas.getContext("2d");
-var canvas1 = document.getElementById("canvas1");
+//var canvas1 = document.getElementById("canvas1");
 
+var paddleHeight = 100;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2;
+var paddleY = (canvas.height-paddleHeight)/2;
 
 var radius = 32;
 var lineWidth = 4;
@@ -26,17 +30,27 @@ var animate = false;
   down: false
 };
  var circle = {
-  x : canvas.width/2,
-  x1 : canvas.width - 1200,
-  y : canvas.height/2,
-  y1 : canvas.height-550,
+  x : canvas.width/2 + 100,
+  x1 : canvas.width/2,
+  y : canvas.height/2 + 100,
+  y1 : canvas.height/2,
   vx: 0, // 'v' stands for 'velocity'
   vy: 0
 };
+var circle2 ={
+  x: canvas.width - 800,
+  x1: canvas.width - 1200,
+  y: canvas.height/2,
+  y1: canvas.height - 600,
+  vx: 0, // 'v' stands for 'velocity'
+  vy: 0
+}
+
+
 function drawBox(){
     c.lineWidth = 1;
     c.strokeRect(0.5, 0.5, canvas.width - 1, canvas.height - 1);
-    g = c.strokeRect(600, 150, canvas.width - 1200, canvas.height - 550);
+   /* g = c.strokeRect(600, 150, canvas.width - 1200, canvas.height - 550);*/
   }
    function drawCircle(){
     c.beginPath();
@@ -44,9 +58,25 @@ function drawBox(){
     c.fillStyle = '00F0FF';
     c.fill();
     c.lineWidth = 4;
-    c.strokeStyle = 'black';
+    c.strokeStyle = 'red';
     c.stroke();
   }
+  function drawPaddle() {
+    c.beginPath();
+    c.rect(paddleX+10, (canvas.height/2)+40 - paddleHeight, paddleWidth, paddleHeight);
+    c.fillStyle = "#00F0FF";
+    c.fill();
+    c.closePath();
+  }
+  /*function drawcircler(){
+    c.beginPath();
+    c.arc(circle2.x,circle2.y, radius - lineWidth/2, 0 ,2 * Math.PI);
+    c.fillStyle = '00F0FF';
+    c.fill();
+    c.lineWidth = 4;
+    c.strokeStyle = 'black';
+    c.stroke();
+  }*/
 
   function drawLineToMouse(){
     c.lineWidth = 2;
@@ -61,7 +91,10 @@ function drawBox(){
     incrementSimulation();
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawBox();
+    
     drawCircle();
+   // drawcircler();
+    drawPaddle();
     if(mouse.down)
       drawLineToMouse();
   }
@@ -111,15 +144,12 @@ function drawBox(){
       circle.vx = Math.abs(circle.vx);
     }
 ///////////////////////////////////////////////
-    if(circle.y1 + radius > canvas.height){
-        circle.y1 = g.height - radius;
-        circle.vy = - Math.abs(circle.vy);
-      }
-      // Отскакивает от потолка
-      else if(circle.y1 - radius < 0){
-        circle.y1 = radius;
-        circle.vy = Math.abs(circle.vy);
-      }
+    if(circle.x > paddleX && circle.x < paddleX + paddleWidth+40 && circle.y > paddleY && circle.y < paddleY + paddleHeight) {
+      circle.vx = -circle.vx;
+    }
+    /*if(circle.y > paddleY && circle.y < paddleY + paddleHeight) {
+      circle.vy = -circle.vy;
+    }*/
 ///////////////////////////////////////////////
   }
 
