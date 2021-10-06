@@ -14,7 +14,7 @@ var c = canvas.getContext("2d");
 //var canvas1 = document.getElementById("canvas1");
 
 var paddleHeight = 100;
-var paddleWidth = 75;
+var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 var paddleY = (canvas.height-paddleHeight)/2;
 
@@ -145,8 +145,9 @@ function drawBox(){
       circle.vx = Math.abs(circle.vx);
     }
 ///////////////////////////////////////////////
-    if(circle.x > paddleX && circle.x < paddleX + paddleWidth+40 && circle.y > paddleY && circle.y < paddleY + paddleHeight) {
+    if(circle.x > paddleX-40 && circle.x < paddleX + paddleWidth+40 && circle.y > paddleY-0 && circle.y < paddleY + paddleHeight+30) {
       circle.vx = -circle.vx;
+      circle.vy = -circle.vy;
     }
     /*if(circle.y > paddleY && circle.y < paddleY + paddleHeight) {
       circle.vy = -circle.vy;
