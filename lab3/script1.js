@@ -155,7 +155,6 @@ function drawBox(){
 ///////////////////////////////////////////////
   }
 
-  
   canvas.addEventListener('mousedown',function(e){
     mouse.down = true;
     mouse.x = e.pageX;
