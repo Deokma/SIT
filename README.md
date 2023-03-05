@@ -1,4 +1,3 @@
-# Laboratory work 
-on 
-modern information technologies
+# Лабораторные работы по предмету "Современные информационные технологии"
+
 
